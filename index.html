@@ -21,9 +21,9 @@ body{
   background:linear-gradient(135deg,#2b2024,#4b353b,#2b2024);
   overflow:hidden;
   color:white;
-  cursor:none; /* ✨ اخفاء الماوس */
 }
 
+/* 🔥 باقي الكود نفسه بدون تغيير */
 .container{
   width:90%;
   max-width:430px;
@@ -69,7 +69,6 @@ body{
   transition:0.3s;
 }
 
-/* 🔥 hover */
 .btn:hover{
   transform:scale(1.1);
   box-shadow:0 0 35px #ff4f8b, 0 0 60px #ff5c93;
@@ -147,7 +146,6 @@ body{
   transition:0.3s;
 }
 
-/* 🔥 hover للصوت */
 .control:hover{
   transform:scale(1.2);
   box-shadow:0 0 35px #ff5c93;
@@ -170,30 +168,10 @@ body{
   30%{opacity:.5;}
   to{transform:translateY(-120px); opacity:0;}
 }
-
-/* ✨ الماوس */
-.cursor{
-  position:fixed;
-  width:20px;
-  height:20px;
-  background:#ff5c93;
-  border-radius:50%;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:9999;
-  box-shadow:0 0 15px #ff5c93, 0 0 30px #ff2e78;
-  transition:transform 0.1s;
-}
-
-.cursor.active{
-  transform:translate(-50%,-50%) scale(1.8);
-}
 </style>
 </head>
 
 <body>
-
-<div class="cursor" id="cursor"></div>
 
 <audio id="music">
   <source src="song.mp4" type="audio/mp4">
@@ -313,19 +291,6 @@ function restart(){
   text.innerHTML = slides[0].text;
   buttonText.innerHTML = slides[0].btn;
 }
-
-/* ✨ حركة الماوس */
-let cursor = document.getElementById("cursor");
-
-document.addEventListener("mousemove", e=>{
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
-
-document.querySelectorAll("button").forEach(btn=>{
-  btn.addEventListener("mouseenter", ()=>cursor.classList.add("active"));
-  btn.addEventListener("mouseleave", ()=>cursor.classList.remove("active"));
-});
 </script>
 
 </body>
